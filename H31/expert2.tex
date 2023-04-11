@@ -1,0 +1,47 @@
+\documentclass[dvipdfmx]{jsarticle}
+
+\input{../preamble}
+
+\begin{document}
+  \begin{enumerate}
+    \item 有限アーベル群の構造定理より, $a_1, a_2, \dots, a_n$であって,
+    \[
+      G \cong \prod_i \mathbb{Z}/a_i\mathbb{Z} =: \prod_i H_{i}
+    \]
+    かつ$a_{i}$は$a_{i+1}$の約数であるようなものが存在する.
+    このとき, $n \geq 2$と仮定すれば, $a_{n-1}$は$a_n$の約数であって, $H_{n}$は巡回群なので,
+    位数$a_{n-1}$の巡回群を部分群として含む.
+    しかし, $G$は条件$(\ast)$を満たすので, $H_{n-1} \subseteq H_{n}$が成り立つ.
+    これは矛盾なので, $n = 1$となる.
+    ゆえに, $G$は巡回群である.
+    \item $G/H$の部分群の集合と$G$の$H$を含む部分群の集合
+    には包含関係を保存するような自然な全単射が存在する.
+    ゆえに, ある$k$が存在して, 位数$k$の部分群$N_1/H, N_2/H \subseteq G/H$が存在したと仮定すれば,
+    \[
+      |N_1|/|H| = |N_1/H| = k = |N_2/H| = |N_2|/|H|
+    \]
+    より, $|N_1| = |N_2|$となって, $G$が条件$(\ast)$を満たすことに反する.
+    したがって, $G/H$も条件$(\ast)$を満たす.
+    \item $n = |G|$として, $n = 1$の場合には主張は明らかに成り立つ.
+
+    $n \geq 2$のとき, $n-1$以下の位数を持つ有限群で, 条件$(\ast)$を満たすものは
+    巡回群であると仮定する.
+    特に, $G$の真部分群はすべて巡回群であると仮定する.
+    $|G| = p_1^{e_1}\cdots p_m^{e_m}$とおき, $G$のSylow-$p_k$部分群を$H_k$とする.
+    $m \geq 2$のとき, $H_k$は帰納法の仮定より巡回群であり, その生成元を$h_k$とおく.
+    また, 条件$(\ast)$より, $G$の任意の部分集合について, 共役な部分群は自分自身のみなので, 正規部分群である.
+    これより, $i \neq j$のとき, $[H_i, H_j] \subseteq H_i \cap H_j = 1$となるので, $H_i$と$H_j$の元はそれぞれ可換である.
+    さらに, $\gcd(p_i, p_j) = 1$より, $h_ih_j$で生成される巡回群$H_iH_j$の位数は$p_ip_j$なので,
+    \[
+      H_i \times H_j \ni (h_i^a, h_j^b) \longmapsto h_i^ah_j^b \in H_iH_j
+    \]
+    は全単射準同型である.
+    ゆえに, 中国式剰余定理より,
+    \[
+      H_iH_j \cong H_i \times H_j \cong \mathbb{Z}/p_i^{e_i}\mathbb{Z} \times \mathbb{Z}/p_j^{e_j}\mathbb{Z} \cong \mathbb{Z}/p_i^{e_i}p_j^{e_j}\mathbb{Z}
+    \]
+    となる.
+    これは巡回群かつ$G$の正規部分群なので, これを他のSylow部分群に対しても繰り返すことにより,
+    $G$が巡回群であることが従う.
+  \end{enumerate}
+\end{document}
