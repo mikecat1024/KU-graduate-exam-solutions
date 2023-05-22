@@ -1,0 +1,28 @@
+\documentclass[dvipdfmx]{jsarticle}
+
+\input{../preamble}
+
+\begin{document}
+    \begin{description}
+        \item[(ii) $\Rightarrow$ (i)]
+            $k$を代数閉体とし, ある$f \in k[X,Y]$が存在して,
+            $V(f) = \set{(0,0)}$と仮定する.
+            このとき,
+            \[
+                V(f) = \set{(0,0)} = V((X,Y))
+            \]
+            なので, Hilbertの零点定理より, $\sqrt{(f)} = \sqrt{(X,Y)} = (X,Y)$が成り立つ.
+            ここで, $X, Y \in (X,Y)$なので, ある$n, m$が存在して,
+            $X^n ,Y^m \in (f)$となる.
+            ゆえに, ある$g, h \in k[X, Y]$が存在して,
+            $X^n = fg$かつ$Y^m = fh$が成り立つ.
+            したがって, $f$が定数または$n  = m = 0$となる.
+            $f$が定数の場合は明らかに矛盾であり,
+            $n = m = 0$の場合は, $g = h = f^{-1}$なので,
+            $V(f) \neq \emptyset$であることに矛盾.
+            これらより, 任意の$f \in k[X, Y]$について, $V(f) \neq \set{(0,0)}$が成り立つ.
+        \item[(i) $\Rightarrow$ (ii)]
+            $k$は代数閉ではないので, 二次以上の既約多項式$g \in k[X]$が存在して, $g$は$k$上で根をもたない.
+            この$g$に対して, $f = Y^{\deg{g}}g(X/Y)$が(ii)を満たす.
+    \end{description}
+\end{document}

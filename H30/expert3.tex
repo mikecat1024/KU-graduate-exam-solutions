@@ -1,0 +1,111 @@
+\documentclass[dvipdfmx]{jsarticle}
+
+\input{../preamble}
+
+\begin{document}
+    \begin{enumerate}
+        \item $K$は$X^7-11$の最小分解体なので, $\xi, \alpha:=11^{1/7} \in K$
+        であり, $\mathbb{Q}(\xi, \alpha) \subseteq K$となる.
+        さらに, $K$の最小性より, $\mathbb{Q}(\xi, \alpha) = K$が成り立つ.
+        ここで, 円分拡大の一般論から, $[\mathbb{Q}(\xi): \mathbb{Q}] = 6$
+        であり, アイゼンシュタインの既約判定法から, $X^7-11$は既約なので,
+        $[\mathbb{Q}(\alpha): \mathbb{Q}] = 7$が成り立つ.
+        これより,
+        \[
+            [K:\mathbb{Q}] = 6[\mathbb{Q}(\alpha): \mathbb{Q}] = 7[\mathbb{Q}(\xi):@ \mathbb{Q}]
+        \]
+        が成り立つ.
+        さらに,
+        \[
+            [K:\mathbb{Q}] = [K:\mathbb{Q}(\alpha)][\mathbb{Q}(\alpha):\mathbb{Q}]
+            \leq [\mathbb{Q}(\xi): \mathbb{Q}][\mathbb{Q}(alpha):\mathbb{Q}] = 42
+        \]
+        となるので, $[K:\mathbb{Q}] = 42$が成り立つ.
+        \item $\mathbb{Q}$が標数$0$の体であることから, $K/\mathbb{Q}$は分離拡大であり,
+        $K$は$X^7-11$の最小分解体なので, $K/\mathbb{Q}$は正規拡大である.
+        したがって, $K/\mathbb{Q}$はGalois拡大である.
+
+        $K/\mathbb{Q}$の真なる中間体の数をもとめるには, Galois理論の基本定理から,
+        $\Gal(K/\mathbb{Q})$の非自明な部分群の数を求めれば十分である.
+        ここで, $\Gal(K/\mathbb{Q})$の元は$\xi, \alpha$の像によって決定され,
+        $\sigma \in \Gal(K/\mathbb{Q})$について,
+        \begin{align*}
+            \sigma(\xi)^7-1 &= 0 & \sigma(\alpha)^7-11 = 0
+        \end{align*}
+        なので, $\sigma(\xi) = \xi^i$, $\sigma(\alpha) = \alpha\xi^j$が成り立つ.
+        ただし, $i \in \mathbb{F}_7^\times$かつ$j \in \mathbb{F}$である.
+        $\sigma$がこのような写像であるとき, $\sigma_{i,j} = \sigma$とおく.
+        また, (1)より, $\abs{\Gal(K/\mathbb{Q})} = 42$なので,
+        この対応によって, 全単射$\mathbb{F}_7^\times \times \mathbb{F}_7 \to \Gal(K/\mathbb{Q})$
+        が存在することに注意する.
+
+        $\Gal(K/\mathbb{Q})$の非自明な部分群は位数が$2,3,6,7,14,21$のいずれかになるので,
+        それぞれの位数の部分群を数えればよい.
+        位数$k$の部分群の数を$s_k$とする.
+        ここで,
+        \begin{align*}
+            \sigma_{i.j}^n(\xi) &= \xi^{i^n} & \sigma_{i,j}^n(\alpha)  &= \alpha \xi^{j(1+i+i^2+\cdots + i^{n-1})}
+        \end{align*}
+        となることに注意する.
+
+        \begin{enumerate}
+            \item $s_2$は位数$2$の元の数と等しく,
+            $\sigma_{i,j}^2(\xi) = \xi$となるのは, $i = 1,6$の場合である.
+            \begin{enumerate}
+                \item $i = 1$のとき, $\sigma_{1,j}^2(\alpha) = \alpha\xi^{2j}$
+                であり, $2j = 0$となるのは$j = 0$のみである.
+                しかし, $\sigma_{1,0}$は位数$1$なので, この場合は位数$2$の元は存在しない.
+                \item $i = 6$のとき,
+                \[
+                    \sigma_{i,j}^2(\alpha) = \alpha\xi^{0} = \alpha
+                \]
+                なので, すべての$j$について$\sigma_{6,j}$は位数$2$の元となる.
+            \end{enumerate}
+            以上より, 位数$2$の元は$7$個存在するので, $s_2 = 7$.
+        \end{enumerate}
+        \item $s_3$は位数$3$の元の数の半分であり, $\sigma_{i,j}^{3}(\xi) = \xi$
+        となるのは, $i = 1,2,4$の場合である.
+        \begin{enumerate}
+            \item $i = 1$のとき, $\sigma_{1,j}^3(\alpha) = \alpha\xi^{3j}$であり, $3j = 0$となるのは,
+            $j = 0$のみである.
+            しかし, $\sigma_{1,0}$は位数$1$なので, この場合は位数$2$の元は存在しない.
+            \item $i = 2$のとき, $\sigma_{2,j}^3(\alpha) = \alpha$なので,
+            すべての$j$について, $\sigma_{2,j}$は位数$3$の元となる.
+            \item $i = 4$のとき, $\sigma_{4,j}^3(\alpha) = \alpha$なので,
+            すべての$j$について, $\sigma_{4,j}$は位数$3$の元となる.
+        \end{enumerate}
+        以上より, 位数$3$の元は$14$個存在するので, $s_3 = 7$が成り立つ.
+        \item Sylowの定理より, $s_7 = 1$である.
+        $\sigma_{i,j}^7(\xi) = \xi^{i^7} = \xi^i$なので, $\sigma_{i,j}^7(\xi) = \xi$
+        となるのは, $i = 1$の場合である.
+        \[
+            \sigma_{1,j}^7(\alpha) = \alpha\xi^{j(1+i+\cdots + i^{6})} = \alpha
+        \]
+        なので, すべての$j$に対して, $\sigma_{1,j}^7 = 1$が成り立つ.
+        しかし, $(i,j) = (1,0)$のときには$\sigma_{1,0}$は位数$1$なので, 位数$7$の元は$6$個である.
+        \item 位数$6$の元を数える.
+        $\sigma_{i,j}^{6}(\xi) = \xi^{i^6} = \xi$なので,
+        すべての$i$について, $\sigma_{i,j}^{6}(\xi) = \xi$が成り立つ.
+        \begin{enumerate}
+            \item $i \neq 1$のときには, $1 + i + \cdots + i^5 = 0$なので,
+            このとき, すべての$j$に対して, $\sigma_{i,j}^6 = 1$が成り立つ.
+            ゆえに, $i \neq 1$かつ, 位数$2,3$でないような$\sigma_{i,j}$はすべて位数$6$の元である
+            \item $i = 1$のときには, 位数$1$または$7$となるので, この場合は位数$6$の元は存在しない.
+        \end{enumerate}
+        したがって, 位数$6$の元は$14$個存在する.
+
+        ここで, $\Gal(K/\mathbb{Q}) = \mathbb{Z}/7\mathbb{Z}\rtimes\mathbb{Z}/6\mathbb{Z}$
+        であることから,
+        自然に
+        \begin{align*}
+            \phi: & \Gal(K/\mathbb{Q}) \to \mathbb{Z}/7\mathbb{Z} & \psi: & \Gal(K/\mathbb{Q}) \to \mathbb{Z}/6\mathbb{Z}
+        \end{align*}
+        が得られる.
+        $G \subseteq \Gal(K/\mathbb{Q})$を位数$6$の部分群とすれば,
+        $\phi(G) = 0$なので, $\psi(G) = \mathbb{Z}/6\mathbb{Z}$
+        が成り立つ.
+        ゆえに, $G \cong \mathbb{Z}/6\mathbb{Z}$である.
+        したがって, $s_6 = 7$である.
+    以上より, $\Gal(K/\mathbbb{Q})$
+    \end{enumerate}
+\end{document}
