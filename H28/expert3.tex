@@ -1,0 +1,136 @@
+
+\documentclass[dvipdfmx]{jsarticle}
+
+\input{../preamble}
+
+\begin{document}
+    \begin{enumerate}
+        \item $A, B \in \GL_2(\mathbb{F}_p)$を相異なる対角行列とする.
+        $A$と$B$が共役なのは, それぞれ対角成分を入れ替えたものに等しいことと同値であることに注意する.
+        したがって, 対角行列$H_C, H_D$をそれぞれ定数行列と定数でない対角行列の集合とすれば,
+        対角行列と共役なものの個数は
+        \[
+            \sum_{A \in H_C} \abs{\set{PAP^{-1} \mid P \in \GL_2(\mathbb{F}_p)}} + \frac{1}{2} \sum_{A \in H_D}\abs{\set{PAP^{-1} \mid P \in \GL_2(\mathbb{F}_p)}}
+        \]
+        である.
+        また, $A \in H_C$に対しては
+        \[
+            \abs{\set{PAP^{-1} \mid P \in \GL_2(\mathbb{F}_p)}} = 1
+        \]
+        である.
+        さらに, $A \in H_D$に対して, $P \mapsto PAP^{-1}$という共役による群作用を考えれば,
+        その安定化群の位数を計算すれば, $(p-1)^2$となることと, $|\GL_2(\mathbb{F}_p)| = (p^2-1)(p^2-p)$であることから,
+        \[
+            \abs{\set{PAP^{-1} \mid P \in \GL_2(\mathbb{F}_p)}} = \frac{p(p-1)^2(p+1)}{(p-1)^2} = p(p+1)
+        \]
+        となる.
+        したがって, $|H_C| = p-1$, $|H_D| = (p-1)(p-2)$であることに注意すれば,
+        \[
+            \sum_{A \in H_C} \abs{\set{PAP^{-1} \mid P \in \GL_2(\mathbb{F}_p)}} + \frac{1}{2} \sum_{A \in H_D}\abs{\set{PAP^{-1} \mid P \in \GL_2(\mathbb{F}_p)}}
+            = p-1 + \frac{p(p+1)(p-1)(p-2)}{2}
+        \]
+        となるので,
+        対角行列と共役でないものの個数は
+        \[
+            p(p^2-1)(p-1) - (p-1) - \frac{p(p+1)(p-1)(p-2)}{2} = \frac{(p-1)^2(p^2+2^+2)}{2}
+        \]
+        である.
+        \item 仮定より, 最小多項式が一致するので, それを$m$とする.
+        さらに, $X, Y$それぞれの固有多項式を$p_X, p_Y$とする.
+        Cayley-Hamiltonの定理より, 最小多項式は固有多項式を割り切るので,
+        $\deg{m} \leq 2$である.
+        \begin{enumerate}
+            \item $\deg{m} = 1$のとき, ある$a \in \mathbb{F}_p$が存在して,
+            $m(t) = t-a$となる.
+            $m(X) = m(Y) = 0$より,
+            \[
+                X = aI_2 = Y
+            \]
+            となるので, 特に共役である.
+            \item $\deg{m} = 2$のとき, 固有多項式はmonicであって,
+            最小多項式が一意であることから, $m = p_X = p_Y$となる.
+            つまり, $X, Y$は同じ固有多項式をもち, さらに固有多項式と最小多項式は等しくなる.
+            このとき, 補題より, それぞれ固有多項式の同伴行列と共役なので,
+            $X, Y$は共役になる.
+        \end{enumerate}
+        以上より, $X, Y$は共役である.
+        \item (2)について, 逆も成り立つことに注意する.
+        $\mathbb{F}_p[t]$の元であって, $\GL_2(\mathbb{F}_p)$の元の最小多項式となるものの個数を求めればよい.
+        \begin{enumerate}
+            \item $a \neq 0$として, $t-a \in \mathbb{F}_p[t]$なるものは, $aI_2 \in \GL_2(\mathbb{F}_p)$
+            の最小多項式なので, $p-1$個.
+            逆に, 定数行列の最小多項式はすべて$t-a$という形をしている.
+            ゆえに, 最小多項式が一次式となるような$\GL_2(\mathbb{F}_p)$の元の共役類は$p-1$個である.
+            \item
+            最小多項式が二次式となるような$\GL_2(\mathbb{F}_p)$の元について,
+            その固有多項式は最小多項式と一致するので, 補題より,
+            固有多項式の同伴行列と共役である.
+            逆に, 同伴行列の最小多項式は二次式になるので,
+            最小多項式が二次式となるような$\GL_2(\mathbb{F}_p)$の元の個数は
+            $\GL_2(\mathbb{F}_p)$に属する同伴行列の個数に等しい.
+            同伴行列が$\GL_2(\mathbb{F}_p)$に属する必要十分条件はその固有多項式の定数項が零でない
+            ことなので, $\GL_2(\mathbb{F}_p)$に属する同伴行列の個数は$p(p-1)$
+        \end{enumerate}
+        以上より, $\GL_2(\mathbb{F}_p)$の元の最小多項式は$(p-1)(p+1)$個ある.
+
+        さらに, (1)で計算していることから, 対角行列を含む$\GL_2(\mathbb{F}_p)$の
+        共役類の個数は$(p-1) + (p-1)(p-2)/2$なので,
+        対角行列を含まない$\GL_2(\mathbb{F}_p)$の共役類の個数は
+        \[
+            (p-1)(p+1) - (p-1) - \frac{(p-1)(p-2)}{2} = \frac{(p+2)(p-1)}{2}
+        \]
+        である.
+    \end{enumerate}
+
+    \begin{lemma}
+        体$K$上の$n$次正方行列$A$について,
+        次は同値である.
+        \begin{enumerate}
+            \item $A$はその固有多項式の同伴行列と共役.
+            \item $A$の固有多項式は最小多項式と一致する.
+            \item ある$x \in K^n$が存在して,
+            $\set{A^0x, A^1x, \dots, A^{n-1}x}$は$K^n$の基底.
+        \end{enumerate}
+    \end{lemma}
+    \begin{proof}
+        $A$の固有多項式を$p_A$, 最小多項式を$m_A$とする.
+        \begin{description}
+            \item[(1) $\Rightarrow$ (2)]
+            同伴行列を$C$とする.
+            $\det(tI-A) = \det(tI-C)$
+            なので, $A$の固有多項式は$C$のそれに等しい.
+            ゆえに, 同伴行列の最小多項式の次数が$n$であることを
+            示せば十分である.
+            $\deg{m_C} \leq n-1$
+            と仮定する.
+            $0 \leq k \leq n-1$に対して,
+            $C^ke_1 = e_{k+1}$なので,
+            $m_C(C)e_1$は$e_1, \dots, e_n$の線形和となる.
+            しかし, $m_C(C) = 0$なので$m_C(0) = 0$となって, 矛盾.
+            したがって, $\deg{m_C} = n$.
+            \item[(2) $\Rightarrow$ (3)]
+            $x \in K^n \setminus \set{0}$を任意にとる.
+            $\set{A^0x, A^1x, \dots, A^kx}$が$K$上線形独立になるような
+            最大の$k$を$m$として, $W_x = \span_K\set{A^0x, A^1x, \dots, A^mx}$とおく.
+            $A^{m+1}x \in W_x$なので, ある$a_i \in K$が存在して,
+            \[
+                A^{m+1}x = \sum_{i = 0}^m a_iA^ix
+            \]
+            が成り立つ.
+            このとき, 元の対応に注目すれば, $A|_{W_x}$は
+            \[
+                m_{A|_{W_x}}(t) = t^m - a_1t^{m-1} - \cdots - a_{m-1}t - a_m \in K[t]
+            \]
+            の同伴行列となる.
+            しかし, $m_{A|_{W_x}}(A) = 0$より, $m_{A|_{W_x}}$は$m_A$で割り切れることと,
+            (1) $\Rightarrow$ (2)で示したことから, $m_{A|_{W_x}}$が最小多項式なので特に既約であことから, $m_A = m_{A|_{W_x}}$が成り立つ.
+            したがって, $m = n$である.
+            以上より, $W_x$は$K^n$の部分線形空間であって, $\dim{W_x} = n$なので, $W_x = K^n$が成り立つ.
+            \item [(3) $\Rightarrow$ (1)]
+            $P = (A^0x, \cdots , A^{n-1}x)$として, $A = P^{-1}CP$が成り立てば十分である.
+            ただし, $C$は$p_A$の同伴行列である.
+            また, $A^0x, \cdots , A^{n-1}x$は$K^n$の基底であることから,
+            $A(A^ix) = P^{-1}CP^{-1}(A^ix)$が成り立てば十分であり, これは計算によってすぐに従う.
+        \end{description}
+    \end{proof}
+\end{document}
