@@ -1,0 +1,36 @@
+
+\documentclass[dvipdfmx]{jsarticle}
+
+\input{../preamble}
+
+\begin{document}
+    $R_a = K[X, Y]/ (X^2-Y^2-X-Y-a) \cong K[S,T]/(ST-a)$であることに注意する.
+    $I = (ST-a)$とおく.
+    \begin{enumerate}
+        \item Hilbertの零点定理より, $K[X, Y]$
+        の極大イデアルは$(X-\alpha, Y-\beta)$という形をしている.
+        また, 剰余環のイデアルの対応関係により,
+        $R_a$の極大イデアルは$\mathfrak{m} = (X-\alpha, Y-\beta)/I$と表せる.
+        ここで, $(XY) = I \subseteq (X-\alpha, Y-\beta)$より,
+        $\alpha\beta = 0$となるので, $\alpha = 0$または$\beta = 0$が成り立つ.
+        $\beta = 0$としても一般性は失わないので, 以下では$\beta = 0$を仮定する.
+        \[
+            ((X-\alpha, Y)/I)^2 = ((X-\alpha, Y)^2 + I)/I
+        \]
+        であることに注意し, $\mathfrak{m}_\alpha = (X-\alpha, Y)$とおけば,
+        \[
+            (\mathfrak{m}_\alpha/I)/(\mathfrak{m}_\alpha/I)^2 = (\mathfrak{m}_\alpha/I)/((\mathfrak{m}_\alpha^2+I)/I) = \mathfrak{m}_\alpha/(\mathfrak{m}_\alpha^2 + I)
+        \]
+        となる.
+
+        $\alpha = 0$とすれば,
+        \[
+            \mathfrak{m}_0/(\mathfrak{m}_0^2 + I) = (X,Y)/((X^2, XY, Y^2) + (XY)) = (X,Y)/(X^2, XY, Y^2)
+        \]
+        となるので, $\dim_K(\mathfrak{m}/\mathfrak{m}^2) = 2$となる.
+        これと次元理論の基本定理より, $\mathfrak{m}$が
+        単項生成でないことが従う.
+
+        $\alpha \neq 0$とすれば,
+    \end{enumerate}
+\end{document}
