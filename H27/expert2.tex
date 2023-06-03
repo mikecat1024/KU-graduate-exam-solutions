@@ -1,0 +1,104 @@
+
+\documentclass[dvipdfmx]{jsarticle}
+
+\input{../preamble}
+
+\begin{document}
+    \begin{enumerate}
+        \item $\phi(x) = x'$, $\phi(y) = x't$なので,
+        $\phi(y^2-6x^2) = X^2(T^2-6) \in (X^2-6)$となり, well-defined.
+
+        $f \in \mathbb{Z}[X,Y]/(Y^2-6x^2) \setminus \set{0}$の代表元を$f_0 \in \mathbb{Z}[X,T]$とする.
+        このとき, $\deg_Y{f_0} \leq 1$と仮定してよいので,
+        ある$g, h \in \mathbb{Z}[X]$が存在して, $f_0 = gY+ h$と表せる.
+        このとき,
+        $\phi(f_0) = gXT + h$であって,
+        $gXT + h \in (T^2-6)$と仮定すれば, $\mathbb{Z}[X,T]$は整域であって,
+        $1, T$は$\mathbb{Z}[X]$上線形独立なので,
+        $gX = h = 0$となる.
+        さらに, $\mathbb{Z}[X]$も整域なので, $g = h = 0$となるが,
+        $f_0 \neq 0$に反するので, $\phi$は単射である.
+        \item $A/P_1$が整域であることを示す.
+        まず, $A = \mathbb{Z}[X,Y]/(Y^2-6X^2)$のイデアルは$(Y^2-6X^2)$を含む
+        $\mathbb{Z}[X,Y]$のイデアルと対応しており,
+        ある$I_1 \subseteq \mathbb{Z}[X,Y]$が存在して,
+        $P_1 = I_1/(Y^2-6X^2)$と表せる.
+        このとき, $(X,Y,5) \subseteq I_1$なので,
+        $(X,Y,5) + (Y^2-6X^2) \subseteq I_1$となる.
+        ここで,
+        \[
+            P_1 \subseteq ((X,Y,5) + (Y^2-6X^2))/(Y^2-6X^2) \subseteq I_1/(Y^2-6X^2) = P_1
+        \]
+        なので,
+        \[
+            P_1 = ((X,Y,5) + (Y^2-6X^2))/(Y^2-6X^2)
+        \]
+        であり,
+        \[
+            (X,Y,5) + (Y^2-6X^2) = (X, Y, 5)
+        \]
+        も成り立つので,
+        \[
+            A/P_1 = (\mathbb{Z}[X, Y]/(Y^2-6X^2))/((X,Y,5)/(Y^2-6X^2)) = \mathbb{Z}[X, Y]/(X,Y,5) = \mathbb{Z}/5\mathbb{Z}
+        \]
+        となる.
+        これは整域なので, $P_1$は素イデアルである.
+
+        次に, $A/P_2$が整域であることを示す.
+        $A/P_1$の場合と同様にして,
+        \[
+            P_2 = ((X-Y, 5) + (Y^2-6X^2))/(Y^2-6X^2)
+        \]
+        であり,
+        \[
+            (X-Y, 5) + (Y^2-6X^2) = (X-Y, 5)
+        \]
+        なので,
+        \[
+            A/P_2 = (\mathbb{Z}[X, Y]/(Y^2-6X^2))/((X-Y,5)/(Y^2-6X^2)) = \mathbb{Z}[X, Y]/(X-Y,5) = \mathbb{Z}/5\mathbb{Z}[X]
+        \]
+        となる.
+        これは整域なので, $P_2$は素イデアルである.
+
+        $A/P_1 \neq A/P_2$より, $P_1 \neq P_2$であって,
+        $P_2 \subseteq P_1$は明らかに成り立つので,
+        $P_2 \subsetneq P_1$となる.
+        \item $B/Q_1$が整域であることを示す.
+        (2)と同様にして,
+        \[
+            B/Q_1 = (\mathbb{Z}[X, T]/(T^2-6))/((X, T+1) + (T^2 -6)/(T^2-6))
+        \]
+        であって,
+        \[
+            (X, T+1) + (T^2 - 6) = (X, T+1, 5)
+        \]
+        なので,
+        \[
+            B/Q_1 = \mathbb{Z}[X, T]/(X, T+1, 5)  = \mathbb{Z}/5\mathbb{Z}
+        \]
+        となる.
+        これは整域なので, $Q_1$は素イデアルである.
+
+        また, (2)で示したことから, $P_1$は特に極大イデアルであって, $Q_1 \neq 1$なので,
+        $P_1 \subseteq Q_1 \cap A$を示せば十分である.
+        $\phi(X) \in Q_1$は明らかであり,
+        \[
+            \phi(Y) = TX = X(T+1)-X \in Q_1
+        \]
+        と,
+        \[
+            \phi(5) = 5 = -(T^2-6) + (T-1)(T+1) \in Q_1
+        \]
+        も成り立つので, $P_1 \subseteq Q_1 \cap A$が成り立つ.
+        これより, $P_1 = Q_1 \cap A$となる.
+        \item $\mathbb{Z}$がネーターであることから, $\mathbb{Z}[X, T] = 2$であり,
+        $\mathbb{Z}[X, T]$において
+        \[
+            0 \subsetneq (T^2-6) \subsetneq (X, T+1) = Q_1
+        \]
+        が成り立つこととイデアルの対応関係から,
+        $B$の素イデアルであって, $Q_1$に真に含まれる
+        素イデアルは$0$しか存在しないが, $P_2 \neq 0$なので,
+        条件を満たす$Q_2$は存在しない.
+    \end{enumerate}
+\end{document}
