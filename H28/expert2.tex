@@ -4,33 +4,50 @@
 \input{../preamble}
 
 \begin{document}
-    $R_a = K[X, Y]/ (X^2-Y^2-X-Y-a) \cong K[S,T]/(ST-a)$であることに注意する.
-    $I = (ST-a)$とおく.
+    $R_a = K[X, Y]/ (X^2-Y^2-X-Y-a) \cong K[S,T]/(ST-a)$なので,
+    $R_a = K[X, Y]/(XY-a)$として考えればよい.
     \begin{enumerate}
-        \item Hilbertの零点定理より, $K[X, Y]$
-        の極大イデアルは$(X-\alpha, Y-\beta)$という形をしている.
-        また, 剰余環のイデアルの対応関係により,
-        $R_a$の極大イデアルは$\mathfrak{m} = (X-\alpha, Y-\beta)/I$と表せる.
-        ここで, $(XY) = I \subseteq (X-\alpha, Y-\beta)$より,
-        $\alpha\beta = 0$となるので, $\alpha = 0$または$\beta = 0$が成り立つ.
-        $\beta = 0$としても一般性は失わないので, 以下では$\beta = 0$を仮定する.
-        \[
-            ((X-\alpha, Y)/I)^2 = ((X-\alpha, Y)^2 + I)/I
-        \]
-        であることに注意し, $\mathfrak{m}_\alpha = (X-\alpha, Y)$とおけば,
-        \[
-            (\mathfrak{m}_\alpha/I)/(\mathfrak{m}_\alpha/I)^2 = (\mathfrak{m}_\alpha/I)/((\mathfrak{m}_\alpha^2+I)/I) = \mathfrak{m}_\alpha/(\mathfrak{m}_\alpha^2 + I)
-        \]
-        となる.
+        \item Hilbertの零点定理より,
+        $K[X, Y]$の極大イデアルは$\alpha, \beta \in K$を使って,
+        $(X-\alpha, Y-\beta)$と表せる.
+        これを$\mathfrak{m}_{\alpha, \beta}$と定める.
 
-        $\alpha = 0$とすれば,
+        剰余環のイデアルの対応関係より,
+        $\mathfrak{m}$を$R_0$の極大イデアルとすれば,
+        $\mathfrak{m} = \mathfrak{m}_{\alpha, \beta} /(XY)$と表せる.
+        このとき, $(XY) \subseteq \mathfrak{m}_{\alpha, \beta}$より,
+        $X = \alpha, Y = \beta$を代入する写像を考えれば,
+        $\alpha\beta = 0$となる.
+        また, $K$は特に整域なので,
+        $\alpha = 0$または$\beta = 0$である.
+        以下, $\beta = 0$と仮定する.
+        $\alpha = 0$のとき,
         \[
-            \mathfrak{m}_0/(\mathfrak{m}_0^2 + I) = (X,Y)/((X^2, XY, Y^2) + (XY)) = (X,Y)/(X^2, XY, Y^2)
+            \mathfrak{m}/\mathfrak{m}^2 = (\mathfrak{m}_{0,0}/(XY)) /(\mathfrak{m}_{0,0}/(XY))^2 = \mathfrak{m}_{0,0}/(\mathfrak{m}_{0,0}^2 + (XY)) = (X,Y)/(X^2, Y^2, XY)
         \]
-        となるので, $\dim_K(\mathfrak{m}/\mathfrak{m}^2) = 2$となる.
-        これと次元理論の基本定理より, $\mathfrak{m}$が
-        単項生成でないことが従う.
+        となるので,
+        $\dim_{K} \mathfrak{m}/\mathfrak{m}^2 = 2$である.
+        また,
+        $\alpha \neq 0$のときには,
+        \[
+            \mathfrak{m}/\mathfrak{m}^2 = (\mathfrak{m}_{\alpha,0}/(XY)) /(\mathfrak{m}_{\alpha,0}/(XY))^2 = \mathfrak{m}_{\alpha,0}/(\mathfrak{m}_{\alpha,0}^2 + (XY)) = (X-\alpha, Y)/((X-\alpha)^2, Y)
+        \]
+        となるので,
+        $\dim_K \mathfrak{m}/\mathfrak{m}^2 = 1$となる.
 
-        $\alpha \neq 0$とすれば,
+        さらに, $\mathfrak{m}$が単項イデアルの場合は
+        \[
+            \mathfrak{m}/\mathfrak{m}^2 = \mathfrak{m} \otimes_{R_0} R_0/\mathfrak{m} = R_0/\mathfrak{m} = K
+        \]
+        となるので,
+        $\dim_K \mathfrak{m}/\mathfrak{m}^2 = 1$となる.
+        したがって,
+        $\alpha = 0$の場合には$\mathfrak{m}$は単項イデアルでない.
+        また, $\alpha \neq 0$の場合には$\mathfrak{m} = (X-\alpha)R_0$となるので, $\mathfrak{m}$は単項イデアルになる.
+        \item (1)と同様にして, $\alpha\beta = a \neq 0$であって,
+        $K$は特に整域なので, $\alpha \neq 0$かつ$\beta \neq 0$が成り立つ.
+        このとき, $\mathfrak{m} = (X-\alpha)R_a$なので, 単項イデアルであって, 
+        (1)で示していることから,
+        $\dim_K \mathfrak{m}/\mathfrak{m}^2 = 1$が成り立つ.
     \end{enumerate}
 \end{document}
