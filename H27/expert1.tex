@@ -1,0 +1,21 @@
+
+\documentclass[dvipdfmx]{jsarticle}
+
+\input{../preamble}
+
+\begin{document}
+    \begin{enumerate}
+        \item $N_1\cap N_2$は正規部分群なので, $N_1 \cap N_2 = \set{0}$である.
+        また, $N_1N_2$は極大イデアルであって, $9 \neq N_1 \subseteq N_1N_2$なので,
+        $N_1N_2 = G$が成り立つ.
+        これより,
+        $G = N_1 \times N_2$が成り立つ.
+        \item $N_1, N_2, N_3$が相異なる自明でない正規部分群とすれば, (1)で示したことから,
+        $i \neq j$ならば$N_i$と$N_j$の元は可換である.
+        さらに, $N_1 \subseteq N_2 \times N_3$なので, $N_1$は$G$のすべての元と可換であり,
+        $N_2$についても同様なので,
+        $G = N_1 \times N_2$は可換群となる.
+        しかし, これは$G$が非可換群であることに反するので,
+        自明でない正規部分群の数は高々2個である.
+    \end{enumerate}
+\end{document}
